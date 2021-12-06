@@ -42,6 +42,15 @@ router.get("/users", (req, res) => {
 // GET details of a specific user (primarily their posts)
 // ****************************************************************************************
 
-// ... your code here
+router.get('/users/:userId/posts',(req,res,next)=>{
+  const {userId} = req.params;
+  User.findById(userId)
+  .populate('posts')
+  .then((userInfo)=>{
+    console.log(userInfo)
+    res.render('users/details',userInfo)
+  })
+  .catch(err=>console.log("ERROR EN GETING ALL POSTS FROM A USER",err))
+})
 
 module.exports = router;

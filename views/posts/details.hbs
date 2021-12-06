@@ -1,1 +1,8 @@
-<h2>Post details page</h2>
+<h2>{{title}}</h2>
+<div>
+  {{content}}
+  <br>
+  - by {{author.username}} ♥️
+</div>
+
+<a href="/users/{{author._id}}/posts">See all {{author.username}}'s posts </a>
